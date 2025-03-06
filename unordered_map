@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+#include <unordered_map>
+using namespace std;
+
+int main()
+{
+	unordered_map<string, int> people;
+	string person;
+	do
+	{
+		cout << "Enter person observed: ";
+		getline(cin, person);
+		if (person.empty())
+			break;
+		if (people[person])
+		{
+			people[person] += 1;
+		}
+		else
+		{
+			people[person] = 1;
+		}
+	}
+	while (!person.empty());
+	cout << "\n\nPeople Observed\n\n"
+		<< "====================================================\n";
+	for (auto pair : people)
+	{
+		cout << pair.first << ": " << pair.second << endl;
+	}
+	return 0;
+}
